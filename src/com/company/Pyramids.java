@@ -15,11 +15,11 @@ public class Pyramids {
         return this.pyramids[index];
     }
 
-    public double largestVolume() {
+    public double getLargestVolume() {
         double largestVolume = this.pyramids[0].getVolume();
-        for (Pyramid pyramid : pyramids) {
-            if (largestVolume < pyramid.getVolume()) {
-                largestVolume = pyramid.getVolume();
+        for (int i = 1; i < pyramids.length; i++) {
+            if (largestVolume < pyramids[i].getVolume()) {
+                largestVolume = pyramids[i].getVolume();
             }
         }
         return largestVolume;
@@ -27,7 +27,7 @@ public class Pyramids {
 
     @Override
     public String toString() {
-        return "largest volume -> " + Utils.formatDouble(largestVolume())
+        return "largest volume -> " + Utils.formatDouble(getLargestVolume())
                 + "\n\n\n";
     }
 }

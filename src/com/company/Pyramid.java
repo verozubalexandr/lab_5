@@ -13,35 +13,37 @@ public class Pyramid extends EquilateralTriangle {
         this.apothem = apothem > 0 ? apothem : 0;
     }
 
+    @Override
     public double getHeight() {
         return (Math.sqrt((Math.pow(this.apothem, 2)) - (Math.pow((super.getHeight() / 3), 2))));
     }
 
+    @Override
     public double getArea() {
-        return (super.getArea() + ((super.getPerimeter() * this.apothem) / 2));
+        return (super.getArea() + ((getPerimeter() * this.apothem) / 2));
     }
 
     public double getVolume() {
-        return (((this.getHeight()) * (Math.pow(super.triangleSide, 2))) / (4 * Math.sqrt(3)));
+        return (((getHeight()) * (Math.pow(super.triangleSide, 2))) / (4 * Math.sqrt(3)));
     }
 
     @Override
     public String toString() {
         return "\tPyramid:"
                 + "\n" +
-                "apothem -> "     + Utils.formatDouble(apothem)
+                "apothem -> " + Utils.formatDouble(apothem)
                 + "\n" +
-                "main side -> "   + Utils.formatDouble(super.triangleSide)
+                "main side -> " + Utils.formatDouble(super.triangleSide)
                 + "\n" +
                 "base height -> " + Utils.formatDouble(super.getHeight())
                 + "\n" +
-                "base area -> "   + Utils.formatDouble(super.getArea())
+                "base area -> " + Utils.formatDouble(super.getArea())
                 + "\n" +
-                "height -> "      + Utils.formatDouble(getHeight())
+                "height -> " + Utils.formatDouble(getHeight())
                 + "\n" +
-                "area -> "        + Utils.formatDouble(getArea())
+                "area -> " + Utils.formatDouble(getArea())
                 + "\n" +
-                "volume -> "      + Utils.formatDouble(getVolume())
+                "volume -> " + Utils.formatDouble(getVolume())
                 + "\n\n\n";
     }
 }

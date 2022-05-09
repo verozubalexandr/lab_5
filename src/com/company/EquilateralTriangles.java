@@ -25,8 +25,9 @@ public class EquilateralTriangles {
 
     public int countMoreThanAverage() {
         int counter = 0;
+        double average = getAverageArea();
         for (EquilateralTriangle equilateralTriangle : equilateralTriangles) {
-            if (equilateralTriangle.getArea() > getAverageArea()) {
+            if (equilateralTriangle.getArea() > average) {
                 counter++;
             }
         }
@@ -35,7 +36,7 @@ public class EquilateralTriangles {
 
     @Override
     public String toString() {
-        return "average area -> "             + Utils.formatDouble(getAverageArea())
+        return "average area -> " + Utils.formatDouble(getAverageArea())
                 + "\n" +
                 "more than average count -> " + countMoreThanAverage()
                 + "\n\n\n";

@@ -39,15 +39,15 @@ public class EquilateralTriangle {
     public String toString() {
         return "\tTriangle:"
                 + "\n" +
-                "triangle side -> "      + Utils.formatDouble(triangleSide)
+                "triangle side -> " + Utils.formatDouble(triangleSide)
                 + "\n" +
                 "triangle perimeter -> " + Utils.formatDouble(getPerimeter())
                 + "\n" +
-                "triangle area -> "      + Utils.formatDouble(getArea())
+                "triangle area -> " + Utils.formatDouble(getArea())
                 + "\n" +
-                "triangle height -> "    + Utils.formatDouble(getHeight())
+                "triangle height -> " + Utils.formatDouble(getHeight())
                 + "\n" +
-                "triangle bisector -> "  + Utils.formatDouble(getBisector())
+                "triangle bisector -> " + Utils.formatDouble(getBisector())
                 + "\n\n\n";
     }
 }

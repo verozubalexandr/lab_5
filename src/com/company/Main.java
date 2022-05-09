@@ -9,8 +9,7 @@ public class Main {
 
         //tasks
         //trianglesTask(amount);
-        pyramidTask(amount);
-
+        //pyramidTask(amount);
     }
 
     private static void trianglesTask(int amount) {
@@ -18,7 +17,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int trianglesIndex = 0;
         double triangleSide;
-        EquilateralTriangles equilateralTriangles = new EquilateralTriangles(amount);
+        final EquilateralTriangles equilateralTriangles = new EquilateralTriangles(amount);
+        final EquilateralTrianglesList equilateralTrianglesList = new EquilateralTrianglesList();
 
         //create first triangle(enter)
         do {
@@ -26,16 +26,22 @@ public class Main {
             triangleSide = scanner.nextDouble();
         } while (!Utils.isCorrectSide(triangleSide));
         equilateralTriangles.setEquilateralTriangle(new EquilateralTriangle(triangleSide), trianglesIndex++);
+        equilateralTrianglesList.add(new EquilateralTriangle(triangleSide));
+
         //create other triangles(random)
         while (trianglesIndex < amount) {
-            equilateralTriangles.setEquilateralTriangle(new EquilateralTriangle((1 + ((Math.random()) * 7))), trianglesIndex++);
+            triangleSide = (1 + ((Math.random()) * 7));
+            equilateralTriangles.setEquilateralTriangle(new EquilateralTriangle(triangleSide), trianglesIndex++);
+            equilateralTrianglesList.add(new EquilateralTriangle(triangleSide));
         }
 
         //results
         while (trianglesIndex > 0) {
             System.out.println(equilateralTriangles.getEquilateralTriangle(--trianglesIndex).toString());
+            System.out.println(equilateralTrianglesList.getEquilateralTriangleFromList(trianglesIndex).toString());
         }
         System.out.println(equilateralTriangles.toString());
+        System.out.println(equilateralTrianglesList.toString());
     }
 
     private static void pyramidTask(int amount) {
@@ -44,7 +50,8 @@ public class Main {
         int pyramidsIndex = 0;
         double triangleSide;
         double apothem;
-        Pyramids pyramids = new Pyramids(amount);
+        final Pyramids pyramids = new Pyramids(amount);
+        final PyramidsList pyramidsList = new PyramidsList();
 
         //create first pyramid(enter)
         do {
@@ -54,15 +61,22 @@ public class Main {
             apothem = scanner.nextDouble();
         } while (!Utils.isCorrectSide(triangleSide) && !Utils.isCorrectSide(apothem));
         pyramids.setPyramid(new Pyramid(apothem, triangleSide), pyramidsIndex++);
+        pyramidsList.add(new Pyramid(apothem, triangleSide));
+
         //create other pyramids(random)
         while (pyramidsIndex < amount) {
-            pyramids.setPyramid(new Pyramid((1 + ((Math.random()) * 7)), (1 + ((Math.random()) * 7))), pyramidsIndex++);
+            apothem = (7 + ((Math.random()) * 7));
+            triangleSide = (1 + ((Math.random()) * 7));
+            pyramids.setPyramid(new Pyramid(apothem, triangleSide), pyramidsIndex++);
+            pyramidsList.add(new Pyramid(apothem, triangleSide));
         }
 
         //results
         while (pyramidsIndex > 0) {
             System.out.println(pyramids.getPyramid(--pyramidsIndex).toString());
+            System.out.println(pyramidsList.getPyramidFromList(pyramidsIndex).toString());
         }
         System.out.println(pyramids.toString());
+        System.out.println(pyramidsList.toString());
     }
 }
