@@ -1,6 +1,8 @@
-package com.company;
+package com.classes;
 
-public class Pyramid extends EquilateralTriangle {
+import java.io.Serializable;
+
+public class Pyramid extends EquilateralTriangle implements Serializable {
     private double apothem;
 
     public Pyramid() {

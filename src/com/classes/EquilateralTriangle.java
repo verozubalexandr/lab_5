@@ -1,6 +1,8 @@
-package com.company;
+package com.classes;
 
-public class EquilateralTriangle {
+import java.io.Serializable;
+
+public class EquilateralTriangle implements Serializable {
     protected double triangleSide;
 
     public EquilateralTriangle() {

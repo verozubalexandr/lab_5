@@ -1,4 +1,4 @@
-package com.company;
+package com.classes;
 
 public class EquilateralTriangles {
     EquilateralTriangle[] equilateralTriangles;
@@ -33,6 +33,7 @@ public class EquilateralTriangles {
         }
         return counter;
     }
+
 
     @Override
     public String toString() {

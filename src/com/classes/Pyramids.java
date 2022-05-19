@@ -1,4 +1,4 @@
-package com.company;
+package com.classes;
 
 public class Pyramids {
     Pyramid[] pyramids;
