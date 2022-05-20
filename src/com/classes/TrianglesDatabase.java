@@ -23,7 +23,11 @@ public class TrianglesDatabase implements Serializable {
         return equilateralTrianglesList.add(equilateralTriangle);
     }
 
-    //gson
+    /**
+     * Save data to file with given name (with Gson lib)
+     *
+     * @param {String} fileName — filename
+     */
     public void save(String fileName) {
         Gson gson = new GsonBuilder().create();
         JsonArray json = gson.toJsonTree(equilateralTrianglesList).getAsJsonArray();
@@ -35,7 +39,11 @@ public class TrianglesDatabase implements Serializable {
         }
     }
 
-    //gson
+    /**
+     * Retrieving data from a file into an object (with Gson lib)
+     *
+     * @param {String} fileName — filename
+     */
     public void load(String fileName) {
         this.clear();
 
@@ -50,10 +58,14 @@ public class TrianglesDatabase implements Serializable {
         }
     }
 
-    //native
-    public void serialize(String filename) {
+    /**
+     * Save data to file with given name (JAVA Native)
+     *
+     * @param {String} fileName — filename
+     */
+    public void serialize(String fileName) {
         try {
-            FileOutputStream fileOut = new FileOutputStream(filename);
+            FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(equilateralTrianglesList);
             out.close();
@@ -63,10 +75,14 @@ public class TrianglesDatabase implements Serializable {
         }
     }
 
-    //native
-    public void deserialize(String filename) {
+    /**
+     * Retrieving data from a file into an object (JAVA Native)
+     *
+     * @param {String} fileName — filename
+     */
+    public void deserialize(String fileName) {
         try {
-            FileInputStream fileIn = new FileInputStream(filename);
+            FileInputStream fileIn = new FileInputStream(fileName);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             this.equilateralTrianglesList = (ArrayList<EquilateralTriangle>) in.readObject();
             in.close();
